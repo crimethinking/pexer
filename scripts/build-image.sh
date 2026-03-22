@@ -27,8 +27,8 @@ function setup {
         "centos:stream8"|"centos:stream9"|"ubi8"|"ubi9"|"oraclelinux:8"|"oraclelinux:9") setup_redhat "${@}";;
         # TODO: remove el7 support completely, leaving as disabled now in case it is required
         #"centos:7") setup_redhat_legacy "${@}";;
-        "ubuntu:24.04"|"ubuntu:noble"|"ubuntu:22.04"|"ubuntu:jammy"|\
-        "debian:bookworm"|"debian:12"|"debian:bullseye"|"debian:11") setup_debian "${@}";;
+        "ubuntu:26.04"|"ubuntu:resolute"|"ubuntu:24.04"|"ubuntu:noble"|"ubuntu:22.04"|"ubuntu:jammy"|\
+        "debian:trixie"|"debian:13"|"debian:bookworm"|"debian:12"|"debian:bullseye"|"debian:11") setup_debian "${@}";;
         #"python:3.10-slim") ;;
         *) echo "Unsupported distro: ${DISTRO}"; exit 1
     esac
