@@ -24,7 +24,7 @@ function setup {
     case "${DISTRO}" in
         # TODO: add support for UBI - ubi, ubi-minimal, ubi-init
         ## https://developers.redhat.com/products/rhel/ubi
-        "centos:stream8"|"centos:stream9"|"ubi8"|"ubi9"|"oraclelinux:8"|"oraclelinux:9") setup_redhat "${@}";;
+        "centos:stream8"|"centos:stream9"|"centos:stream10"|"ubi8"|"ubi9"|"ubi10"|"oraclelinux:8"|"oraclelinux:9"|"oraclelinux:10") setup_redhat "${@}";;
         # TODO: remove el7 support completely, leaving as disabled now in case it is required
         #"centos:7") setup_redhat_legacy "${@}";;
         "ubuntu:26.04"|"ubuntu:resolute"|"ubuntu:24.04"|"ubuntu:noble"|"ubuntu:22.04"|"ubuntu:jammy"|\
@@ -73,6 +73,9 @@ function setup_redhat {
         "ubi9") packages+=( python3 python-wheel-wheel );;
         "oraclelinux:9") packages+=( python3 python3-wheel-wheel ); repos=( "--enablerepo=ol9_codeready_builder" );;
         "centos:stream9") packages+=( python3 python-wheel-wheel ); repos=( "--enablerepo=crb" );;
+        "ubi10") packages+=( python3 python-wheel-wheel );;
+        "oraclelinux:10") packages+=( python3 python3-wheel-wheel ); repos=( "--enablerepo=ol10_codeready_builder" );;
+        "centos:stream10") packages+=( python3 python-wheel-wheel ); repos=( "--enablerepo=crb" );;
     esac
 
     dnf install -y "${repos[@]}" "${packages[@]}"
